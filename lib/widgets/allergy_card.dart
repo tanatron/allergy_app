@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hugeicons/hugeicons.dart';
 import 'package:intl/intl.dart';
 import '../models/allergy.dart';
 import 'severity_badge.dart';
@@ -15,18 +16,18 @@ class AllergyCard extends StatelessWidget {
     required this.onDelete,
   });
 
-  IconData _getTypeIcon() {
+  List<List<dynamic>> _getTypeIcon() {
     switch (allergy.allergyType) {
       case 'Food':
-        return Icons.restaurant;
+        return HugeIcons.strokeRoundedRiceBowl01;
       case 'Drug':
-        return Icons.medication;
+        return HugeIcons.strokeRoundedGivePill;
       case 'Environmental':
-        return Icons.eco;
+        return HugeIcons.strokeRoundedLeaf02;
       case 'Insect':
-        return Icons.bug_report;
+        return HugeIcons.strokeRoundedBug01;
       default:
-        return Icons.warning;
+        return HugeIcons.strokeRoundedAlertCircle;
     }
   }
 
@@ -79,7 +80,7 @@ class AllergyCard extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Icon(_getTypeIcon(), color: Theme.of(context).primaryColor),
+                    HugeIcon(icon: _getTypeIcon(), color: Theme.of(context).primaryColor),
                     const SizedBox(width: 12),
                     Expanded(
                       child: Text(
